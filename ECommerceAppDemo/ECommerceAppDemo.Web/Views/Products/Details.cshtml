@@ -1,0 +1,63 @@
+﻿@{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+@using Newtonsoft.Json.Linq;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .product-details {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .product-property {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+    }
+
+    .property-name {
+        font-weight: bold;
+    }
+</style>
+
+<h1>Product Details</h1>
+
+@if (ViewBag.ProductDetails != null)
+{
+    var product = ViewBag.ProductDetails as JObject;
+
+    if (product != null)
+    {
+        <div class="product-details">
+            @foreach (var prop in product)
+            {
+                if (prop.Value != null && prop.Value.Type != JTokenType.Null)
+                {
+                    <div class="product-property">
+                        <span class="property-name">@prop.Key:</span>
+                        <span class="property-value">@prop.Value</span>
+                    </div>
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <p>Invalid product data format.</p>
+    }
+}
+else
+{
+    <p>Product details not found.</p>
+}
+
+
