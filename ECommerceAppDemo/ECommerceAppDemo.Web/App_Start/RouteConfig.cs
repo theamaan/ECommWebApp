@@ -18,10 +18,6 @@ namespace ECommerceAppDemo.Web
                 url: "{controller}/{action}/{catagoryName}",
                 defaults: new { controller = "Products", action = "Index", catagoryName = UrlParameter.Optional }
             );
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
 
             routes.MapRoute(
             name: "ProductDetails",

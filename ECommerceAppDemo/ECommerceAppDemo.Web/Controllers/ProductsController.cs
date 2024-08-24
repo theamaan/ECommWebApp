@@ -72,6 +72,7 @@ namespace ECommerceAppDemo.Web.Controllers
             ViewBag.ProductDetails = productDetails;
             return View();
         }
+        //function():-> add to cart 
     }
 
 }

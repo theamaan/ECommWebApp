@@ -1,8 +1,6 @@
 ﻿@{
-        ViewBag.Title = "Details";
-    }
-
-    <h2>Details</h2>
+    ViewBag.Title = "Details";
+}
 
 @using Newtonsoft.Json.Linq;
 
@@ -10,44 +8,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .product-details {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .product-property {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 5px;
-    }
-
-    .property-name {
-        font-weight: bold;
-    }
-</style>
-
-<h1>Product Details</h1>
-
 @if (ViewBag.ProductDetails != null)
 {
     var product = ViewBag.ProductDetails as JObject;
 
     if (product != null)
     {
-        <div class="product-details">
-            @foreach (var prop in product)
-            {
-                if (prop.Value != null && prop.Value.Type != JTokenType.Null)
+        <div class="product-details-container">
+            <div class="product-image">
+                <img src="path_to_image/@product["BrandName"].ToString().ToLower()_product.jpg" alt="@product["BrandName"]">
+            </div>
+            <div class="product-info">
+                @foreach (var prop in product)
                 {
-                    <div class="product-property">
-                        <span class="property-name">@prop.Key:</span>
-                        <span class="property-value">@prop.Value</span>
-                    </div>
+                    if (prop.Value != null && prop.Value.Type != JTokenType.Null && prop.Key != "PID")
+                    {
+                        <div class="product-property">
+                            <span class="property-name">@prop.Key:</span>
+                            <span class="property-value">@prop.Value</span>
+                        </div>
+                    }
                 }
-            }
+
+                <button id="addToCartBtn" class="add-to-cart-btn">Add to Cart</button>
+                <div id="cartStatus" class="added-to-cart" style="display:none;">Added to Cart</div>
+            </div>
         </div>
     }
     else
@@ -60,4 +45,12 @@ else
     <p>Product details not found.</p>
 }
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#addToCartBtn').click(function () {
+            $(this).prop('disabled', true);
+            $('#cartStatus').show();
+        });
+    });
+</script>
