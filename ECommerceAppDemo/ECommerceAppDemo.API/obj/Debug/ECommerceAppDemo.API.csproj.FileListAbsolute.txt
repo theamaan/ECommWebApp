@@ -191,6 +191,7 @@ D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Unity.Abstractions.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Unity.Container.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Antlr3.Runtime.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.AssemblyReference.cache
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.CoreCompileInputs.cache
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.CopyComplete
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.dll

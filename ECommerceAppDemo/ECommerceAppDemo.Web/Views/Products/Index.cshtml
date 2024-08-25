@@ -16,7 +16,7 @@
 else
 {
     // Product display
-    <h1>Products in @ViewBag.CategoryName</h1>
+    @*<h1>Products in @ViewBag.CategoryName</h1>*@
 
     if (ViewBag.ProductsData != null)
     {
@@ -107,7 +107,6 @@ else
                     </div>
                 </a>`;
             }
-
             productCards.append(card);
         });
     } else {

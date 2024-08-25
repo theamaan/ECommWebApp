@@ -11,6 +11,10 @@ using ECommerceAppDemo.Web.Services;
 
 namespace ECommerceAppDemo.Web.Controllers
 {
+
+
+
+
     public class ProductsController : Controller
     {
         private readonly HttpClient _httpClient;
