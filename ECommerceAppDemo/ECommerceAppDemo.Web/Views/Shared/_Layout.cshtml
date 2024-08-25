@@ -19,15 +19,16 @@
                 </ul>
             </div>
             <div class="right">
-                <input placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
+                <input placeholder="Search for products, brands and more" class="desktop-searchBar">
                 <div class="icons">
-                    <div class="profile" onclick="shoppingCart()">Profile</div>
-                    <div class="wish">Wishlist</div>
-                    <div class="bag">Bag</div>
+                    <button class="profile" onclick="shoppingCart()">Profile</button>
+                    <button class="bag">Bag</button>
+                    <button class="dark-mode-toggle" id="toggleDarkMode">🌓</button>
                 </div>
             </div>
         </nav>
     </header>
+
     <main role="main" class="container">
         @RenderBody()
     </main>
@@ -142,5 +143,6 @@
             </div>
         </div>
     </footer>
+    <script src="~/Scripts/toggleButton.js"></script>
 </body>
 </html>
