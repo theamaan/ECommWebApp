@@ -8,7 +8,9 @@
     <header>
         <nav>
             <div class="left">
-                <img src="https://m.media-amazon.com/images/I/71K0Zl4P25L._AC_SL1001_.jpg" alt="Site Logo">
+                <a href="@Url.Action("Index")">
+                    <img src="https://m.media-amazon.com/images/I/71K0Zl4P25L._AC_SL1001_.jpg" alt="Site Logo">
+                </a>
                 <ul>
                     @foreach (var category in ViewBag.Categories ?? new List<string>())
                     {
@@ -22,12 +24,37 @@
                 <input placeholder="Search for products, brands and more" class="desktop-searchBar">
                 <div class="icons">
                     <button class="profile" onclick="shoppingCart()">Profile</button>
-                    <button class="bag">Bag</button>
+                    <button class="bag" id="cartButton">Bag</button>
                     <button class="dark-mode-toggle" id="toggleDarkMode">🌓</button>
                 </div>
             </div>
         </nav>
+       
     </header>
+
+    @*<button id="cartButton">View Cart</button>*@
+    <div id="cartContainer"></div>
+
+    <script>
+        $(document).ready(function () {
+            // Attach click event to the Bag button
+            $("#cartButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Cart/Index",
+                    success: function (data) {
+                        // Render the View in the div with an ID of "cartContainer"
+                        $("#cartContainer").html(data);
+                    },
+                    error: function (xhr, status, error) {
+                        alert("An error occurred while loading the cart: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+
+
     <main role="main" class="container">
         @RenderBody()
     </main>
@@ -132,7 +159,7 @@
                 <div>
                     <div class="customer-satisfaction">
                         <strong class="original"> 100% ORIGINAL</strong> guarantee <br>
-                        for all products at myntra.com
+                        for all products at cybershopee.com
                     </div>
                     <div>
                         <strong class="original">Return within 30days </strong>of <br>
@@ -143,5 +170,12 @@
         </div>
     </footer>
     <script src="~/Scripts/toggleButton.js"></script>
+    <script>
+        // Add event listener to the cart button
+        document.getElementById("cartButton").addEventListener("click", function () {
+            // Redirect to the cart page
+            window.location.href = "https://localhost:44347/cart/index";
+        });
+    </script>
 </body>
 </html>

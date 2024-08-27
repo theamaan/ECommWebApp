@@ -1,56 +1,123 @@
 ﻿@{
-    ViewBag.Title = "Details";
-}
-
-@using Newtonsoft.Json.Linq;
-
-@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (ViewBag.ProductDetails != null)
+@{
+    ViewBag.Title = "CyberShopee";
+}
+
+
+@if (string.IsNullOrEmpty(Request.QueryString["categoryName"]))
 {
-    var product = ViewBag.ProductDetails as JObject;
-
-    if (product != null)
-    {
-        <div class="product-details-container">
-            <div class="product-image">
-                <img src="path_to_image/@product["BrandName"].ToString().ToLower()_product.jpg" alt="@product["BrandName"]">
-            </div>
-            <div class="product-info">
-                @foreach (var prop in product)
-                {
-                    if (prop.Value != null && prop.Value.Type != JTokenType.Null && prop.Key != "PID")
-                    {
-                        <div class="product-property">
-                            <span class="property-name">@prop.Key:</span>
-                            <span class="property-value">@prop.Value</span>
-                        </div>
-                    }
-                }
-
-                <button id="addToCartBtn" class="add-to-cart-btn">Add to Cart</button>
-                <div id="cartStatus" class="added-to-cart" style="display:none;">Added to Cart</div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <p>Invalid product data format.</p>
-    }
+    // Default content
+    <h1>Welcome to our e-commerce site</h1>
+    <p>Please select a category from the header to view products.</p>
 }
 else
 {
-    <p>Product details not found.</p>
-}
+    // Product display
+    @*<h1>Products in @ViewBag.CategoryName</h1>*@
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#addToCartBtn').click(function () {
-            $(this).prop('disabled', true);
-            $('#cartStatus').show();
+    if (ViewBag.ProductsData != null)
+    {
+        var productsData = Html.Raw(ViewBag.ProductsData);
+        <div id="productCards" class="product-cards-container"></div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            var productsData = @Html.Raw(ViewBag.ProductsData);
+            var productCards = $('#productCards');
+
+            if (productsData.length > 0) {
+                productsData.forEach(function (product) {
+                var card = '';
+            if (product.Category_Name === "Television") {
+                card = `
+                <a href="/Products/Details?pid=${product.PID}">
+                    <div class="product-card">
+                        <img src="path_to_image/${product.BrandName.toLowerCase()}_${product.Television_Size}.jpg" alt="${product.BrandName} ${product.Television_Size}">
+                        <div class="product-info">
+                            <h3>${product.BrandName} - ${product.Television_Size}</h3>
+                            <p>Model Year: ${product.Model_Year}</p>
+                            <p>Type: ${product.Television_Type}</p>
+                            <p>Operating System: ${product.Television_OS}</p>
+                            <p>Price: $${product.Price}</p>
+                        </div>
+                    </div>
+                </a>`;
+            } else if (product.Category_Name === "Headset") {
+                card = `
+                <a href="/Products/Details?pid=${product.PID}">
+                    <div class="product-card">
+                        <img src="path_to_image/${product.BrandName.toLowerCase()}_headset.jpg" alt="${product.BrandName} Headset">
+                        <div class="product-info">
+                            <h3>${product.BrandName} - ${product.Headset_Type}</h3>
+                            <p>Model Year: ${product.Model_Year}</p>
+                            <p>Connectivity: ${product.Headset_Connectivity}</p>
+                            <p>Battery: ${product.Headset_Battery}</p>
+                            <p>Power Output: ${product.Headset_PowerOutput}</p>
+                            <p>Price: $${product.Price}</p>
+                        </div>
+                    </div>
+                </a>`;
+            } else if (product.Category_Name === "Refrigerator") {
+                card = `
+                <a href="/Products/Details?pid=${product.PID}">
+                    <div class="product-card">
+                        <img src="path_to_image/${product.BrandName.toLowerCase()}_refrigerator.jpg" alt="${product.BrandName} Refrigerator">
+                        <div class="product-info">
+                            <h3>${product.BrandName} - ${product.Refrigerator_Capacity} Capacity</h3>
+                            <p>Model Year: ${product.Model_Year}</p>
+                            <p>Type: ${product.Refrigerator_Type}</p>
+                            <p>Star Rating: ${product.Refrigerator_Star}</p>
+                            <p>Feature: ${product.Refrigerator_Feature}</p>
+                            <p>Price: $${product.Price}</p>
+                        </div>
+                    </div>
+                </a>`;
+            } else if (product.Category_Name === "Mobile") {
+                card = `
+                <a href="/Products/Details?pid=${product.PID}">
+                    <div class="product-card">
+                        <img src="path_to_image/${product.BrandName.toLowerCase()}_mobile.jpg" alt="${product.BrandName} Mobile">
+                        <div class="product-info">
+                            <h3>${product.BrandName} - ${product.Mobile_ScreenSize} Screen</h3>
+                            <p>Model Year: ${product.Model_Year}</p>
+                            <p>Storage: ${product.Mobile_Storage}</p>
+                            <p>Processor: ${product.Mobile_Processor}</p>
+                            <p>Battery: ${product.Mobile_Battery}</p>
+                            <p>Screen Type: ${product.Mobile_ScreenType}</p>
+                            <p>Price: $${product.Price}</p>
+                        </div>
+                    </div>
+                </a>`;
+            } else if (product.Category_Name === "Smartwatch") {
+                card = `
+                <a href="/Products/Details?pid=${product.PID}">
+                    <div class="product-card">
+                        <img src="path_to_image/${product.BrandName.toLowerCase()}_smartwatch.jpg" alt="${product.BrandName} Smartwatch">
+                        <div class="product-info">
+                            <h3>${product.BrandName} - ${product.Smartwatch_DisplaySize} Display</h3>
+                            <p>Model Year: ${product.Model_Year}</p>
+                            <p>Display Type: ${product.Smartwatch_DisplayType}</p>
+                            <p>Dial Shape: ${product.Smartwatch_DialShape}</p>
+                            <p>Price: $${product.Price}</p>
+                        </div>
+                    </div>
+                </a>`;
+            }
+            productCards.append(card);
         });
-    });
-</script>
+    } else {
+        productCards.append('<p>No products found.</p>');
+    }
+            });
+        </script>
+    }
+
+    else
+    {
+        <p>No data available for @ViewBag.CategoryName.</p>
+    }
+}

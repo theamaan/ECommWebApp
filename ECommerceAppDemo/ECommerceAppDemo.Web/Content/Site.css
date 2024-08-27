@@ -209,7 +209,7 @@ footer {
 .bag {
     color: #000;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 750;
     padding: 0px 13px;
     cursor: pointer;
     letter-spacing: 0.5px;
@@ -611,11 +611,11 @@ nav ul {
 }
 
     .icons button {
-        background-color: #f0f0f0;
+        /*background-color: #f0f0f0;*/
         border: none;
-        padding: 10px 15px;
+        /*padding: 10px 15px;*/
         cursor: pointer;
-        border-radius: 5px;
+        /*border-radius: 5px;*/
     }
 
         .icons button:hover {
@@ -629,3 +629,22 @@ nav ul {
     border: none;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

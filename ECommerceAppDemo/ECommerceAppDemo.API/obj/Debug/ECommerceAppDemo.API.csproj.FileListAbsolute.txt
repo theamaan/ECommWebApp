@@ -155,6 +155,7 @@ D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\EntityFramework.SqlServer.d
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Microsoft.Web.Infrastructure.dll
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Newtonsoft.Json.dll
+D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Rotativa.dll
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Swashbuckle.Core.dll
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\System.Net.Http.Formatting.dll
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\System.Runtime.CompilerServices.Unsafe.dll
@@ -191,7 +192,6 @@ D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Unity.Abstractions.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Unity.Container.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Antlr3.Runtime.pdb
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.AssemblyReference.cache
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.CoreCompileInputs.cache
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.csproj.CopyComplete
 D:\Project\ECommerceAppDemo\ECommerceAppDemo.API\obj\Debug\ECommerceAppDemo.API.dll
